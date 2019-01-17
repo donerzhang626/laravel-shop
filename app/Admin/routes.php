@@ -15,6 +15,12 @@ Route::group([
 	$router->get('users/create', 'UsersController@create');
 	$router->get('users/{id}', 'UsersController@show');
 	$router->get('users/{id}/edit', 'UsersController@edit');
-	$router->get('products', 'ProductsController@index');
+	$router->put('users/{id}', 'Userscontroller@update');
 	
+	$router->get('products', 'ProductsController@index');
+	$router->get('products/create', 'ProductsController@create');
+	$router->post('products', 'ProductsController@store');
+	$router->get('products/{id}/edit', 'ProductsController@edit');
+	$router->put('products/{id}', 'ProductsController@update');
+	$router->delete('products/{id}', 'ProductsController@destroy');
 });
