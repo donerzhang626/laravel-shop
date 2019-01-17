@@ -12,4 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
 	$router->get('users', 'UsersController@index');
+	$router->get('users/create', 'UsersController@create');
+	$router->get('users/{id}', 'UsersController@show');
+	$router->get('users/{id}/edit', 'UsersController@edit');
 });
