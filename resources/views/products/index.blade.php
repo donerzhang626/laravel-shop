@@ -37,9 +37,15 @@
                     <div class="col-3 product-item">
                         <div class="product-content">
                             <div class="top">
-                                <div class="img"><img src="{{ $product->image_url }}" alt=""></div>
+                                <div class="img">
+                                    <a href="{{ route('products.show', ['product' => $product->id]) }}">
+                                        <img src="{{ $product->image_url }}" alt="">
+                                    </a>
+                                </div>
                                 <div class="price"><b>￥</b>{{ $product->price }}</div>
-                                <div class="title">{{ $product->title }}</div>
+                                <a href="{{ route('products.show', ['product' => $product->id]) }}">
+                                    <div class="title">{{ $product->title }}</div>
+                                </a>
                             </div>
                             <div class="bottom">
                                 <div class="sold_count">销量 <span>{{ $product->sold_count }}笔</span></div>
@@ -58,15 +64,18 @@
 
 @section('scriptsAfterJs')
 <script>
-    var filters = {!! json_encode($filters) !!}
-
+    //var filters = {!! json_encode($filters) !!};
     $(document).ready(function () {
-        $('.search-form input[name=search]').val(filters.search);
-        $('.search-form select[name=order]').val(filters.order);
 
-        $('.search-from select[name=order]').on('change', function () {
-           $('.search-from').submit();
+        $('.search-form select[name=order]').on('change', function() {
+
+            $('.search-form').submit();
         });
+
+        /*
+        $(".search-form input[name=search]").val(filters.search);
+        $(".search-form select[name=order]").val(filters.order);
+*/
     })
 </script>
 @endsection
