@@ -226,4 +226,5 @@ return [
 
     ],
 
+	'order_ttl' => 30,
 ];
